@@ -18,7 +18,7 @@ export function CtaSection() {
       id="cta"
       className="relative w-full overflow-hidden"
       style={{
-        backgroundImage: "url('/images/sectionBG.png')",
+        backgroundImage: "url('/images/sectionBG.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

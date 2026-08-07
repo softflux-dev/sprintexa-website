@@ -8,7 +8,7 @@ import { Section } from "@/components/ui/section";
 
 const showcaseRows = [
   {
-    image: "/images/product1.png",
+    image: "/images/product1.webp",
     imageAlt: "Sprintexa projects, chat, HR, and operations dashboard",
     width: 5840,
     height: 4860,
@@ -24,7 +24,7 @@ const showcaseRows = [
     reversed: false,
   },
   {
-    image: "/images/product2.png",
+    image: "/images/product2.webp",
     imageAlt: "Sprintexa attendance and payroll screen",
     width: 5840,
     height: 5251,

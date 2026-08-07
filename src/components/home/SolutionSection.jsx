@@ -18,7 +18,7 @@ export function SolutionSection() {
       <div className="relative left-1/2 w-[82vw] -translate-x-1/2">
         <div className="scroll-no-bar">
           <Image
-            src="/images/tangleImg.png"
+            src="/images/tangleImg.webp"
             alt="Work sprawl tangles context and productivity"
             width={17228}
             height={7032}

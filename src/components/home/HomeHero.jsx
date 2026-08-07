@@ -84,7 +84,7 @@ export function HomeHero() {
 
         <div className="relative mx-auto w-full max-w-3xl">
           <Image
-            src="/images/homeHero.png"
+            src="/images/homeHero.webp"
             alt="Sprintexa all-in-one platform illustration"
             width={10820}
             height={6380}

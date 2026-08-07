@@ -79,7 +79,7 @@ export function AboutHero() {
 
         <div className="relative mx-auto w-full max-w-2xl">
           <Image
-            src="/images/aboutHero.png"
+            src="/images/aboutHero.webp"
             alt="Sprintexa all-in-one platform illustration"
             width={9580}
             height={6520}
