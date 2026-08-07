@@ -1,0 +1,37 @@
+export const pricingPlans = [
+  {
+    title: "Starter",
+    subtitle: "For small teams getting organized",
+    price: "Custom",
+    priceLabel: "/Pricing",
+    buttonText: "Book A Free Demo",
+    buttonVariant: "primary",
+    popular: false,
+    features: [
+      "Up to 10 team members",
+      "Up to 3 roles (Admin, HR, Employee)",
+      "Up to 5 active projects, Kanban boards",
+      "Attendance, leave & task management",
+      "Team chat + project channels",
+    ],
+  },
+  {
+    title: "Growth",
+    subtitle: "For scaling businesses that need more room",
+    price: "Custom",
+    priceLabel: "/Pricing",
+    buttonText: "Book A Free Demo",
+    buttonVariant: "primary",
+    popular: true,
+    features: [
+      "Unlimited team members",
+      "Unlimited custom roles (Dynamic RBAC)",
+      "Unlimited projects",
+      "Everything in Starter, plus",
+      "Full HR & payroll suite with payslip generation",
+      "Advanced performance analytics & exports",
+      "Code repository (GitHub/GitLab) integration",
+      "Priority onboarding & support",
+    ],
+  },
+];
