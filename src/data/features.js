@@ -1,50 +1,51 @@
 export const features = [
   {
-    icon: "/icons/featureIcons/Vector.svg",
-    title: "Plan & track work",
+    icon: "/icons/featureIcons/Black.svg",
+    title: "Dynamic Role-Based Access",
     description:
-      "Keep sprints, deadlines, and dependencies on one board your whole team actually uses.",
+      "Control exactly who can see and do what with fully customizable roles and granular permissions that evolve with your org.",
   },
   {
     icon: "/icons/featureIcons/calendar.svg",
-    title: "Time & scheduling",
+    title: "Attendance & Time Tracking",
     description:
-      "Log hours against projects and keep everyone aligned with a shared team calendar.",
-  },
-  {
-    icon: "/icons/featureIcons/Black.svg",
-    title: "Chat & comments",
-    description:
-      "Discuss work where it lives — decisions stay attached to the task, never lost in a thread.",
+      "Track check-ins, working hours, late arrivals, and trends with smart calendars and automated logs — no spreadsheets.",
   },
   {
     icon: "/icons/featureIcons/Black-1.svg",
-    title: "Documents & files",
+    title: "Leave Management",
     description:
-      "Store contracts, specs, and records in one searchable, permission-controlled workspace.",
-  },
-  {
-    icon: "/icons/featureIcons/Black-2.svg",
-    title: "Dashboards & reports",
-    description:
-      "Live dashboards surface progress, capacity, and cost at a glance, in real time.",
-  },
-  {
-    icon: "/icons/featureIcons/Black-3.svg",
-    title: "Automated workflows",
-    description:
-      "Route timesheets, leave, and expenses through approvals without the back-and-forth.",
-  },
-  {
-    icon: "/icons/featureIcons/Black-4.svg",
-    title: "People & roles",
-    description:
-      "Manage roles, permissions, and pay rates from a single, always-current directory.",
+      "Employees apply, managers approve — all in one seamless flow. Balances, types, and history stay effortlessly organized.",
   },
   {
     icon: "/icons/featureIcons/Black-5.svg",
-    title: "Payroll & invoices",
+    title: "Performance & Reports",
     description:
-      "Turn approved hours into accurate payroll and invoices in minutes, not Mondays.",
+      "Get a clear view of productivity, workload distribution, and team performance with real-time, exportable insights.",
+  },
+  {
+    icon: "/icons/featureIcons/Black-2.svg",
+    title: "HR & Payroll Automation",
+    description:
+      "Run payroll in minutes. Calculate salaries, bonuses, and deductions and generate downloadable payslips from one dashboard.",
+  },
+  {
+    icon: "/icons/featureIcons/Black-3.svg",
+    title: "Project Management",
+    description:
+      "Plan and manage projects with full visibility. Break work into modules, assign teams, and track progress in real time.",
+  },
+  {
+    icon: "/icons/featureIcons/Vector.svg",
+    title: "Tasks & Kanban Boards",
+    description:
+      "Assign tasks, set priorities, and track progress visually with drag-and-drop boards so nothing slips through the cracks.",
+  },
+
+  {
+    icon: "/icons/featureIcons/Black-4.svg",
+    title: "Team Chat & Collaboration",
+    description:
+      "Keep conversations where the work happens with direct messages and project-based channels — no context switching.",
   },
 ];

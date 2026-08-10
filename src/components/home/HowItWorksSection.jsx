@@ -37,12 +37,12 @@ export function HowItWorksSection() {
     <Section id="how-it-works" containerClassName="py-16 sm:py-24">
       <div className="flex flex-col items-center gap-4 text-center">
         <Badge className="shadow-sm">How it works</Badge>
-        <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          From setup to payout in four simple steps.
+        <h2 className="max-w-4xl text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          Get started in minutes, not weeks.
         </h2>
         <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Get your team running in minutes — no complex setup, no training
-          required.
+          From setup to daily operations — everything is simple, guided, and
+          built for real teams.
         </p>
       </div>
 

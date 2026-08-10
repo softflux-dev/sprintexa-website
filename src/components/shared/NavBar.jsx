@@ -50,7 +50,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
         
             <Button asChild variant="primary" className="hidden sm:inline-flex">
-              <SmoothLink href="#book-demo">Book a Demo</SmoothLink>
+              <SmoothLink href="/#book-demo">Book a Demo</SmoothLink>
             </Button>
             <NavbarMobileMenu links={navLinks} />
           </div>

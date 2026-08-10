@@ -26,6 +26,10 @@ export function SmoothLink({ href, onClick, children, scroll = true, ...props })
   const target = resolveHash(href);
 
   function handleClick(event) {
+    // Always notify the caller (e.g. close a mobile menu) even for
+    // cross-page links.
+    onClick?.(event);
+
     // Cross-page link — let Next.js handle navigation + scroll.
     if (!target || target.path !== pathname) return;
 
@@ -36,7 +40,6 @@ export function SmoothLink({ href, onClick, children, scroll = true, ...props })
       // Keep the browser hash in sync without jumping.
       history.replaceState(null, "", target.hash);
     }
-    onClick?.(event);
   }
 
   return (

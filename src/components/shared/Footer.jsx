@@ -49,7 +49,12 @@ function SocialLink({ href, label, path }) {
       aria-label={label}
       className="flex size-9 items-center justify-center rounded-full bg-foreground text-background transition-opacity hover:opacity-80"
     >
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="size-4">
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+        className="size-4"
+      >
         <path d={path} />
       </svg>
     </a>
@@ -117,7 +122,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-foreground">Stay connected</h3>
+            <h3 className="text-sm font-bold text-foreground">
+              Stay connected
+            </h3>
             <div className="mt-5 flex items-center gap-3">
               {socialLinks.map((link) => (
                 <SocialLink key={link.label} {...link} />
@@ -137,8 +144,17 @@ export default function Footer() {
               single place.
             </p>
           </div>
-          <p className="shrink-0 text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Sprintexa. All rights reserved.
+          <p className="w-full text-center text-sm text-muted-foreground sm:w-auto sm:text-left sm:shrink-0">
+            © {new Date().getFullYear()} Sprintexa. All rights reserved | ©
+            Powered By{" "}
+            <a
+              href="https://softwarefluxsolution.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline underline-offset-4"
+            >
+              softwarefluxsolution.com
+            </a>
           </p>
         </div>
       </Container>

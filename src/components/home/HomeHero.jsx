@@ -33,12 +33,14 @@ export function HomeHero() {
       <div className="grid items-center gap-12 lg:grid-cols-[1fr_2fr] lg:gap-8">
         <div className="flex flex-col items-start text-left">
           <h1 className="max-w-5xl  text-balance text-4xl font-medium leading-tighter tracking-tight text-foreground lg:text-6xl">
-            One Platform to Run <br/ >
+            One Platform to Run <br />
             <span className="text-gradient-primary">Your Whole Team</span>
           </h1>
           <p className="mt-3 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Your supporting subtext goes here. Explain the value in two or three
-            clear sentences that make the reader want to take action.
+            Sprintexa brings projects, HR, attendance, payroll, tasks, and team
+            collaboration into one unified platform so your growing business
+            can move faster, stay organized, and operate without the chaos of
+            spreadsheets and scattered workflows.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
