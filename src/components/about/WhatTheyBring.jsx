@@ -36,6 +36,8 @@ export function WhatTheyBring() {
               <Link
                 key={service.label}
                 href={service.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex flex-col items-center text-center"
               >
                 <span className="relative flex size-14 items-center justify-center rounded-xl bg-gradient-primary shadow-sm transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-md">
@@ -60,7 +62,11 @@ export function WhatTheyBring() {
         <div className="mt-12 flex justify-center pt-6 sm:mt-14">
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" variant="primary">
-              <Link href="https://softwarefluxsolution.com/our-work/">
+              <Link
+                href="https://softwarefluxsolution.com/our-work/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View Portfolio
               </Link>
             </Button>
@@ -70,7 +76,11 @@ export function WhatTheyBring() {
               variant="outline"
               className="bg-white shadow-md hover:bg-white"
             >
-              <Link href="https://softwarefluxsolution.com/our-service/">
+              <Link
+                href="https://softwarefluxsolution.com/our-service/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="text-gradient-primary font-semibold">
                   View Services
                 </span>
