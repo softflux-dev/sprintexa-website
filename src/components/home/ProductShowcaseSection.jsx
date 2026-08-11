@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
+import { SmoothLink } from "@/components/ui/smooth-link";
 
 const showcaseRows = [
   {
@@ -80,7 +80,7 @@ export function ProductShowcaseSection() {
                 {row.description}
               </p>
               <Button asChild variant="primary" size="lg" className="mt-8">
-                <Link href="#book-demo">Get Started</Link>
+                <SmoothLink href="/#book-demo">Get Started</SmoothLink>
               </Button>
             </div>
 

@@ -26,7 +26,7 @@ function PartnerLogo({ name, logo }) {
       <img
         src={logo}
         alt={`${name} logo`}
-        className="h-8 w-auto opacity-60 transition-opacity duration-300 hover:opacity-100"
+        className="h-8 w-auto  duration-300 "
       />
     </li>
   );

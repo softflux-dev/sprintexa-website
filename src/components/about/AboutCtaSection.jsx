@@ -39,7 +39,11 @@ export function AboutCtaSection() {
           variant="outline"
           className="mt-2 rounded-xl bg-white px-7 shadow-md hover:bg-white"
         >
-          <Link href="#book-demo">
+          <Link
+            href="https://softwarefluxsolution.com/our-work/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="text-gradient-primary font-semibold">
               View Portfolio
             </span>
@@ -51,7 +55,11 @@ export function AboutCtaSection() {
           variant="outline"
           className="mt-2 rounded-xl bg-white px-7 shadow-md hover:bg-white"
         >
-          <Link href="#book-demo">
+          <Link
+            href="https://softwarefluxsolution.com/our-service/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="text-gradient-primary font-semibold">
               View Services
             </span>

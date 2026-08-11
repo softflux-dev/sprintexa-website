@@ -4,6 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
+import { SmoothLink } from "@/components/ui/smooth-link";
 
 /**
  * Home page hero — mirrors AboutHero's two-column split (~45/55) on the same
@@ -45,7 +46,7 @@ export function HomeHero() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button asChild size="lg" variant="primary">
-              <Link href="#book-demo">Book A Free Demo</Link>
+              <SmoothLink href="/#book-demo">Book A Free Demo</SmoothLink>
             </Button>
             <Button
               asChild
@@ -53,7 +54,7 @@ export function HomeHero() {
               variant="ghost"
               className="group bg-white px-4 shadow-sm text-base font-semibold hover:bg-white hover:underline underline-offset-4"
             >
-              <Link href="#how-it-works">
+              <Link href="/#how-it-works">
                 <span className="text-gradient-primary">See How It Works</span>
                 <ArrowRight className="size-4 text-[#aa2493] transition-transform duration-300 ease-out group-hover:translate-x-0.5" />
               </Link>

@@ -58,7 +58,11 @@ export function AboutHero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Button asChild size="lg" variant="primary">
-              <Link href="https://softwarefluxsolution.com/our-work/">
+              <Link
+                href="https://softwarefluxsolution.com/our-work/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View Portfolio
               </Link>
             </Button>
@@ -68,7 +72,11 @@ export function AboutHero() {
               variant="outline"
               className="bg-white shadow-md hover:bg-white"
             >
-              <Link href="https://softwarefluxsolution.com/our-service/">
+              <Link
+                href="https://softwarefluxsolution.com/our-service/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="text-gradient-primary font-semibold">
                   View Services
                 </span>

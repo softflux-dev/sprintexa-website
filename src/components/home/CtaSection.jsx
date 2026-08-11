@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
+import { SmoothLink } from "@/components/ui/smooth-link";
 
 /**
  * Home CTA section — full-viewport-width banner with the `sectionBG` image
@@ -40,11 +39,11 @@ export function CtaSection() {
           variant="outline"
           className="mt-2 rounded-xl bg-white px-7 shadow-md hover:bg-white"
         >
-          <Link href="#book-demo">
+          <SmoothLink href="/#book-demo">
             <span className="text-gradient-primary font-semibold">
               Schedule Free Demo
             </span>
-          </Link>
+          </SmoothLink>
         </Button>
       </div>
     </section>
