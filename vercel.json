@@ -3,6 +3,14 @@
     { "source": "/_next/:path*", "destination": "/_next/:path*" },
     { "source": "/favicon.ico", "destination": "/favicon.ico" },
     { "source": "/about", "destination": "/about" },
+    {
+      "source": "/login",
+      "destination": "https://mvp-sfs-frontend-nu.vercel.app/login"
+    },
+    {
+      "source": "/login/:path*",
+      "destination": "https://mvp-sfs-frontend-nu.vercel.app/login/:path*"
+    },
     { "source": "/:path+", "destination": "https://www.sprintexa.com/:path+" }
   ]
 }
