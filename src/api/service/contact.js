@@ -13,6 +13,8 @@ import {ENDPOINTS} from "@/api/endpoint";
  *   companyName: string,
  *   companySize: string,
  *   phoneNumber: string,
+ *   scheduledAt: string,
+ *   scheduledTimeZone: string,
  *   message: string,
  * }} payload - Form values matching the backend contract.
  * @returns {Promise<*>} The resolved response body.

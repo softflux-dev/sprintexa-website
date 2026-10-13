@@ -1,15 +1,18 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { toast } from "sonner";
 
 import { useBookDemo } from "@/hooks/use-book-demo";
+import { PhoneNumberField } from "@/components/home/PhoneNumberField";
 import {
   bookDemoSchema,
   companySizeOptions,
+  nicheOptions,
 } from "@/lib/validations/book-demo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -67,6 +70,9 @@ function getErrorMessage(error) {
 
 export function BookDemoForm() {
   const { isSubmitting, submit } = useBookDemo();
+  const [phoneCountry, setPhoneCountry] = useState("PK");
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
 
   const form = useForm({
     resolver: zodResolver(bookDemoSchema),
@@ -75,20 +81,43 @@ export function BookDemoForm() {
       workEmail: "",
       companyName: "",
       companySize: "",
+      niche: "",
       phoneNumber: "",
+      demoDate: "",
+      demoTime: "",
       message: "",
     },
   });
 
   const onSubmit = useCallback(
     async (values) => {
-      const result = await submit(values);
+      const scheduledAt = values.demoDate && values.demoTime
+        ? new Date(`${values.demoDate}T${values.demoTime}`) : null;
+      if (scheduledAt && (Number.isNaN(scheduledAt.getTime()) || scheduledAt <= new Date())) {
+        form.setError("demoTime", { message: "Choose a future date and time." });
+        return;
+      }
+      const phone = values.phoneNumber
+        ? parsePhoneNumberFromString(values.phoneNumber, phoneCountry)
+        : null;
+      if (values.phoneNumber && !phone?.isValid()) {
+        form.setError("phoneNumber", { message: "Enter a valid phone number for the selected country." });
+        return;
+      }
+      const { demoDate, demoTime, ...contact } = values;
+      const result = await submit({
+        ...contact,
+        phoneNumber: phone?.number || "",
+        scheduledAt: scheduledAt?.toISOString() || "",
+        scheduledTimeZone: scheduledAt ? Intl.DateTimeFormat().resolvedOptions().timeZone : "",
+      });
 
       if (result.ok) {
         toast.success(result.data?.message ?? "Demo request received!", {
           description: "We'll be in touch shortly to schedule your demo.",
         });
         form.reset();
+        setPhoneCountry("PK");
         return;
       }
 
@@ -96,7 +125,7 @@ export function BookDemoForm() {
         description: getErrorMessage(result.error),
       });
     },
-    [submit, form]
+    [submit, form, phoneCountry]
   );
 
   return (
@@ -200,21 +229,40 @@ export function BookDemoForm() {
 
         <FormField
           control={form.control}
+          name="niche"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Niche / Industry</FormLabel>
+              <Select value={field.value} onValueChange={field.onChange}>
+                <FormControl>
+                  <SelectTrigger className={`${inputClassName} w-full`}>
+                    <SelectValue placeholder="Select your industry (optional)" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {nicheOptions.map((option) => (
+                    <SelectItem key={option} value={option}>{option}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
           name="phoneNumber"
           render={({ field }) => (
-            <FormItem className="sm:col-span-2">
-              <FormLabel>Phone Number</FormLabel>
+            <FormItem>
+              <FormLabel>Phone Number <RequiredMark /></FormLabel>
               <FormControl>
-                <Input
-                  type="tel"
-                  inputMode="numeric"
-                  placeholder="+1 555 123 4567"
-                  autoComplete="tel"
+                <PhoneNumberField
+                  country={phoneCountry}
+                  onCountryChange={setPhoneCountry}
+                  value={field.value}
+                  onChange={field.onChange}
                   className={inputClassName}
-                  {...field}
-                  onChange={(event) =>
-                    field.onChange(event.target.value.replace(/[^0-9]/g, ""))
-                  }
                 />
               </FormControl>
               <FormMessage />
@@ -224,13 +272,40 @@ export function BookDemoForm() {
 
         <FormField
           control={form.control}
+          name="demoDate"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Preferred Demo Date (optional)</FormLabel>
+              <FormControl><Input type="date" min={today} className={inputClassName} {...field} /></FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="demoTime"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Preferred Demo Time (optional)</FormLabel>
+              <FormControl><Input type="time" className={inputClassName} {...field} /></FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <p className="-mt-4 text-xs text-muted-foreground sm:col-span-2">
+          Date and time are in your local time zone ({Intl.DateTimeFormat().resolvedOptions().timeZone}).
+        </p>
+
+        <FormField
+          control={form.control}
           name="message"
           render={({ field }) => (
             <FormItem className="sm:col-span-2">
-              <FormLabel>What are you hoping to solve?</FormLabel>
+              <FormLabel>What are you hoping to resolve?</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Looking to streamline our HR workflows."
+                  placeholder="Tell us about your pain points and goals (up to 500 words)."
                   className={textareaClassName}
                   {...field}
                 />
@@ -252,7 +327,7 @@ export function BookDemoForm() {
               Submitting...
             </>
           ) : (
-            "Schedule Your Free Demo"
+            "Schedule a Free Demo"
           )}
         </Button>
       </form>

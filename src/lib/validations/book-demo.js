@@ -8,6 +8,10 @@ export const companySizeOptions = [
 ];
 
 const companySizeValues = companySizeOptions.map((option) => option.value);
+export const nicheOptions = [
+  "Software Development House", "Digital Marketing Agency", "Construction",
+  "E-Commerce", "Education", "Healthcare", "Financial Services", "Other",
+];
 
 export const bookDemoSchema = z.object({
   fullName: z
@@ -31,16 +35,25 @@ export const bookDemoSchema = z.object({
     .refine((value) => companySizeValues.includes(value), {
       message: "Select your company size.",
     }),
+  niche: z.string().refine((value) => !value || nicheOptions.includes(value), {
+    message: "Select a valid industry.",
+  }),
   phoneNumber: z
     .string()
     .trim()
-    .regex(/^\d{7,15}$/, { message: "Enter a valid phone number." })
-    .optional()
-    .or(z.literal("")),
+    .min(1, { message: "Phone number is required." })
+    .regex(/^\d{7,15}$/, { message: "Enter a valid phone number." }),
+  demoDate: z.string(),
+  demoTime: z.string(),
   message: z
     .string()
     .trim()
-    .max(500, { message: "Message must be under 500 characters." })
+    .refine((value) => !value || value.split(/\s+/).length <= 500, {
+      message: "Please keep your message to 500 words or fewer.",
+    })
     .optional()
     .or(z.literal("")),
+}).refine((value) => Boolean(value.demoDate) === Boolean(value.demoTime), {
+  path: ["demoTime"],
+  message: "Choose both a date and time, or leave both blank.",
 });
